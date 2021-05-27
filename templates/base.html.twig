@@ -5,12 +5,16 @@
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
 
-    {% block content %}
-        <h1>Страница сайта</h1>
-    {% endblock %}
+<body>
+{% block body %}
+    <body>
+    <h1>Страница сайта</h1>
+    </body>
+{% endblock %}
+</body>
 
-    {% block javascripts %}
-        {{ encore_entry_script_tags('app') }}
-    {% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
 </head>
 </html>

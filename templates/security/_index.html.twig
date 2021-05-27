@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center flex-column">
+        <h1>Форма регистрации игрока</h1>
+        <form class="register-form needs-validation" novalidate>
+            <div class="form-group">
+                <label for="register-form-email">Фамилия</label>
+                <input type="email" class="form-control" id="register-form-email" placeholder="Иванов">
+            </div>
+            <div class="form-group">
+                <label for="register-form-email">Имя</label>
+                <input type="text" class="form-control" id="register-form-name" placeholder="Иван">
+            </div>
+            <div class="form-group">
+                <label for="register-form-patr">Отчество</label>
+                <input type="text" class="form-control" id="register-form-patr" placeholder="Иванович">
+            </div>
+            <div class="form-group">
+                <label for="register-form-nickname">Игровое имя <span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="register-form-nickname" placeholder="Колобок">
+            </div>
+            <div class="form-group">
+                <label for="register-form-email">E-mail <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="register-form-email" placeholder="player@example.com">
+            </div>
+            <div class="form-group">
+                <label for="register-form-password">Пароль <span class="text-danger">*</span></label>
+                <input type="password" class="form-control" id="register-form-password" placeholder="Введите сложный пароль">
+            </div>
+            <div class="form-group">
+                <label for="register-form-sex">Выберите ваш пол <span class="text-danger">*</span></label>
+                <select class="form-control" id="register-form-sex">
+                    <option>Мужской</option>
+                    <option>Женский</option>
+                </select>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="register-form-check">
+                <label class="form-check-label" for="regiser-form-check">Я принимаю условия обработки персональных данных <span class="text-danger">*</span></label>
+            </div>
+            <button type="submit" class="btn btn-primary">Зарегестрироваться</button>
+        </form>
+    </div>
+
+{% endblock %}
