@@ -30,7 +30,7 @@ class RegistrationFormType extends AbstractType
 					'Мужской' => 'man',
 					'Женский' => 'woman',
 				],
-				'label' => "Выберите пол"
+				'label' => "Выберите пол*"
 			])
 			->add("nick_name", null, ['label' => "Игровое имя*"])
 			->add('email', EmailType::class, ['label' => "Почта*"])

@@ -1,11 +1,7 @@
-<h1>Hi! Please confirm your email!</h1>
+<h1>Привет! Пожалуйста, подтвердите вашу регистрацию на сайте mafia-manager.ru</h1>
 
 <p>
-    Please confirm your email address by clicking the following link: <br><br>
+    Для того, чтобы подтвердить свою регистрацию, нужно перейти по следующей ссылке: <br><br>
     <a href="{{ signedUrl }}">Confirm my Email</a>.
-    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
-</p>
-
-<p>
-    Cheers!
+    Эта ссылка будет действительна в течении {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
 </p>
