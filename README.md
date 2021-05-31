@@ -2,3 +2,4 @@
 
 [ссылка на ТЗ](docs/obsidian/MafiaManager/Техническое%20задание.md)
 
+[ссылка на макет](https://www.figma.com/file/vPF5gMVTtRBjjjwVzEH5nU/MafiaManager?node-id=1%3A2)

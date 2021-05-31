@@ -71,27 +71,27 @@ class Player implements UserInterface
 	 */
 	private $slogan;
 
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $isVerified = false;
+	/**
+	 * @ORM\Column(type="boolean")
+	 */
+	private $isVerified = false;
 
 	public function getId(): ?int
-               	{
-               		return $this->id;
-               	}
+	{
+		return $this->id;
+	}
 
 	public function getEmail(): ?string
-               	{
-               		return $this->email;
-               	}
+	{
+		return $this->email;
+	}
 
 	public function setEmail(string $email): self
-               	{
-               		$this->email = $email;
-               
-               		return $this;
-               	}
+	{
+		$this->email = $email;
+
+		return $this;
+	}
 
 	/**
 	 * A visual identifier that represents this user.
@@ -99,43 +99,43 @@ class Player implements UserInterface
 	 * @see UserInterface
 	 */
 	public function getUsername(): string
-               	{
-               		return (string)$this->email;
-               	}
+	{
+		return (string)$this->email;
+	}
 
 	/**
 	 * @see UserInterface
 	 */
 	public function getRoles(): array
-               	{
-               		$roles = $this->roles;
-               		// guarantee every user at least has ROLE_USER
-               		$roles[] = 'ROLE_USER';
-               
-               		return array_unique($roles);
-               	}
+	{
+		$roles = $this->roles;
+		// guarantee every user at least has ROLE_USER
+		$roles[] = 'ROLE_USER';
+
+		return array_unique($roles);
+	}
 
 	public function setRoles(array $roles): self
-               	{
-               		$this->roles = $roles;
-               
-               		return $this;
-               	}
+	{
+		$this->roles = $roles;
+
+		return $this;
+	}
 
 	/**
 	 * @see UserInterface
 	 */
 	public function getPassword(): string
-               	{
-               		return $this->password;
-               	}
+	{
+		return $this->password;
+	}
 
 	public function setPassword(string $password): self
-               	{
-               		$this->password = $password;
-               
-               		return $this;
-               	}
+	{
+		$this->password = $password;
+
+		return $this;
+	}
 
 	/**
 	 * Returning a salt is only needed, if you are not using a modern
@@ -144,117 +144,117 @@ class Player implements UserInterface
 	 * @see UserInterface
 	 */
 	public function getSalt(): ?string
-               	{
-               		return null;
-               	}
+	{
+		return null;
+	}
 
 	/**
 	 * @see UserInterface
 	 */
 	public function eraseCredentials()
-               	{
-               		// If you store any temporary, sensitive data on the user, clear it here
-               		// $this->plainPassword = null;
-               	}
+	{
+		// If you store any temporary, sensitive data on the user, clear it here
+		// $this->plainPassword = null;
+	}
 
 	public function getSex(): ?string
-               	{
-               		return $this->sex;
-               	}
+	{
+		return $this->sex;
+	}
 
 	public function setSex(string $sex): self
-               	{
-               		$this->sex = $sex;
-               
-               		return $this;
-               	}
+	{
+		$this->sex = $sex;
+
+		return $this;
+	}
 
 	public function getFirstName(): ?string
-               	{
-               		return $this->first_name;
-               	}
+	{
+		return $this->first_name;
+	}
 
 	public function setFirstName(?string $first_name): self
-               	{
-               		$this->first_name = $first_name;
-               
-               		return $this;
-               	}
+	{
+		$this->first_name = $first_name;
+
+		return $this;
+	}
 
 	public function getLastName(): ?string
-               	{
-               		return $this->last_name;
-               	}
+	{
+		return $this->last_name;
+	}
 
 	public function setLastName(?string $last_name): self
-               	{
-               		$this->last_name = $last_name;
-               
-               		return $this;
-               	}
+	{
+		$this->last_name = $last_name;
+
+		return $this;
+	}
 
 	public function getPatronymicName(): ?string
-               	{
-               		return $this->patronymic_name;
-               	}
+	{
+		return $this->patronymic_name;
+	}
 
 	public function setPatronymicName(?string $patronymic_name): self
-               	{
-               		$this->patronymic_name = $patronymic_name;
-               
-               		return $this;
-               	}
+	{
+		$this->patronymic_name = $patronymic_name;
+
+		return $this;
+	}
 
 	public function getAvatar(): ?string
-               	{
-               		return $this->avatar;
-               	}
+	{
+		return $this->avatar;
+	}
 
 	public function setAvatar(?string $avatar): self
-               	{
-               		$this->avatar = $avatar;
-               
-               		return $this;
-               	}
+	{
+		$this->avatar = $avatar;
+
+		return $this;
+	}
 
 	public function getNickName(): ?string
-               	{
-               		return $this->nick_name;
-               	}
+	{
+		return $this->nick_name;
+	}
 
 	public function setNickName(string $nick_name): self
-               	{
-               		$this->nick_name = $nick_name;
-               
-               		return $this;
-               	}
+	{
+		$this->nick_name = $nick_name;
+
+		return $this;
+	}
 
 	public function getSlogan(): ?string
-               	{
-               		return $this->slogan;
-               	}
+	{
+		return $this->slogan;
+	}
 
 	public function setSlogan(?string $slogan): self
-               	{
-               		$this->slogan = $slogan;
-               
-               		return $this;
-               	}
+	{
+		$this->slogan = $slogan;
+
+		return $this;
+	}
 
 	public function getFullName(): string
-               	{
-               		return $this->last_name . " " . $this->first_name . " " . $this->patronymic_name;
-               	}
+	{
+		return $this->last_name . " " . $this->first_name . " " . $this->patronymic_name;
+	}
 
-    public function isVerified(): bool
-    {
-        return $this->isVerified;
-    }
+	public function isVerified(): bool
+	{
+		return $this->isVerified;
+	}
 
-    public function setIsVerified(bool $isVerified): self
-    {
-        $this->isVerified = $isVerified;
+	public function setIsVerified(bool $isVerified): self
+	{
+		$this->isVerified = $isVerified;
 
-        return $this;
-    }
+		return $this;
+	}
 }
