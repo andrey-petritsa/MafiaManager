@@ -1,0 +1,73 @@
+{
+  "users": [
+    {
+      "lastName": "Петрица",
+      "firstName": "Андрей",
+      "patronymicName": "Викторович",
+      "nickName": "Бумажный"
+    },
+    {
+      "lastName": "Пушкин",
+      "firstName": "Александр",
+      "patronymicName": "Сергеевич",
+      "nickName": "Писатель"
+    },
+    {
+      "lastName": "Путин",
+      "firstName": "Иван",
+      "patronymicName": "Николаевич",
+      "nickName": "Президент"
+    },
+    {
+      "lastName": "Патриций",
+      "firstName": "Виктор",
+      "patronymicName": "Иванович",
+      "nickName": "Философ"
+    },
+    {
+      "lastName": "Высоцкий",
+      "firstName": "Никита",
+      "patronymicName": "Михайлович",
+      "nickName": "Творец"
+    },
+    {
+      "lastName": "Суворов",
+      "firstName": "Александр",
+      "patronymicName": "Васильевич",
+      "nickName": "Стратег"
+    },
+    {
+      "lastName": "Галкин",
+      "firstName": "Максим",
+      "patronymicName": "Николаевич",
+      "nickName": "Комик"
+    },
+    {
+      "lastName": "Михалков",
+      "firstName": "Никита",
+      "patronymicName": "Михайлович",
+      "nickName": "Режисер"
+    },
+    {
+      "lastName": "Жириновский",
+      "firstName": "Владимир",
+      "patronymicName": "Вольфович",
+      "nickName": "Политик"
+    },
+    {
+      "lastName": "Гавришев",
+      "firstName": "Максим",
+      "patronymicName": "Ирисович",
+      "nickName": "Друг"
+    }
+  ],
+  "shared": [
+    {
+      "email": "user@example.com",
+      "password": "123456",
+      "sex": "man",
+      "verified": true,
+      "avatar": "build/images/dummy_avatar.jpg"
+    }
+  ]
+}

@@ -10,4 +10,5 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: 213GBBN_OCqwe5tgergGERwf23
     ports:
-      - 8002:3306
+      - 8001:3306
+

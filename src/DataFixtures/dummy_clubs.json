@@ -1,0 +1,14 @@
+[
+  {
+    "name":  "Гарлем",
+    "logo":  "build/images/dummy_club_logo.jpg",
+    "organisator":  1,
+    "city": "Курск"
+  },
+  {
+    "name":  "ShowTime",
+    "logo":  "build/images/dummy_club_logo.jpg",
+    "organisator":  2,
+    "city": "Воронеж"
+  }
+]
