@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Entity\Player;
 use App\Entity\PlayerResult;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -18,6 +19,17 @@ class PlayerResultRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, PlayerResult::class);
     }
+
+//	public function getTotalGamesOfPlayer(Player $player) : int
+//	{
+//		$totalPlayedGames = $this->createQueryBuilder("ps")
+//			->select('count(ps.id)')
+//			->
+//			->setParameter("player_id", $player->getId())
+//			->getQuery()
+//			->getSingleScalarResult();
+//		return $totalPlayedGames;
+//    }
 
     // /**
     //  * @return PlayerResult[] Returns an array of PlayerResult objects

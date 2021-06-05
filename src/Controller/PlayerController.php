@@ -3,16 +3,34 @@
 namespace App\Controller;
 
 use App\Entity\Player;
+use App\Repository\PlayerResultRepository;
+use App\Entity\PlayerResult;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\Security\Core\Security;
+use App\Repository\PlayerRepository;
+use App\Helper\PlayerStatisticHelper;
+
 
 class PlayerController extends AbstractController
 {
+	private $security;
+	private $playerRepository;
+
+	public function __construct(Security $security)
+	{
+		$this->security = $security;
+	}
+
 	#[Route('/player', name: 'player', methods: ['GET'])]
 	public function index(): Response
 	{
+		$loggedPlayer = $this->security->getUser();
+		$totalPlayedGames = $this->getDoctrine()->getRepository(Player::class)->getAllPlayerResultForGames($loggedPlayer);
+		$playerStatisitcHelper = new PlayerStatisticHelper($totalPlayedGames);
+		$playerStatistic = $playerStatisitcHelper->getPercentStatisticForAllRoles();
 		return $this->render('player/index.html.twig', [
 			'controller_name' => 'PlayerController',
 		]);

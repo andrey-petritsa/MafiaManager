@@ -1,8 +1,13 @@
 {% extends 'base.html.twig' %}
 {% block body %}
     <div class="container">
-        <div class="alert alert-primary" role="alert">
-            Привет игрок!
-        </div>
+        {{ app.user.getFullName() }}
+        <ul>
+            <li>Всего игр:</li>
+            <li>Процент за мафию:</li>
+            <li>Процент за мирных:</li>
+            <li>Процент за шерифа:</li>
+            <li>Процент за дона:</li>
+        </ul>
     </div>
 {% endblock %}

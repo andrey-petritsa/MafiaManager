@@ -108,4 +108,15 @@ class PlayerResult
 
         return $this;
     }
+
+	//Нужно для работы array_columns https://www.php.net/manual/en/function.array-column.php
+	public function __get($prop)
+	{
+		return $this->$prop;
+	}
+
+	public function __isset($prop) : bool
+	{
+		return isset($this->$prop);
+	}
 }
