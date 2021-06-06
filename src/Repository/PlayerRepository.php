@@ -51,6 +51,21 @@ class PlayerRepository extends ServiceEntityRepository implements PasswordUpgrad
 		return $totalPlayedGames;
     }
 
+	public function getAllPlayerResultForWinGames(Player $player)
+	{
+		$totalGamesThatPlayerWin = $this->getEntityManager()->createQueryBuilder()
+			->select( 'plr')
+			->from(PlayerResult::class, "plr")
+			->join('plr.player', 'p')
+			->where("p = :player")
+			->andWhere("plr.is_win = true")
+			->setParameter('player', $player)
+			->getQuery()
+			->getResult()
+		;
+		return $totalGamesThatPlayerWin;
+    }
+
 	// /**
 	//  * @return Player[] Returns an array of Player objects
 	//  */

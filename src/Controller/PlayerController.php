@@ -30,9 +30,10 @@ class PlayerController extends AbstractController
 		$loggedPlayer = $this->security->getUser();
 		$totalPlayedGames = $this->getDoctrine()->getRepository(Player::class)->getAllPlayerResultForGames($loggedPlayer);
 		$playerStatisitcHelper = new PlayerStatisticHelper($totalPlayedGames);
-		$playerStatistic = $playerStatisitcHelper->getPercentStatisticForAllRoles();
+		$playerStatistic = $playerStatisitcHelper->getPlayerStatistic();
 		return $this->render('player/index.html.twig', [
-			'controller_name' => 'PlayerController',
+			'player_statistic' => $playerStatistic,
+			'game_results' => $totalPlayedGames,
 		]);
 	}
 

@@ -1,13 +1,70 @@
 {% extends 'base.html.twig' %}
 {% block body %}
+    <title>MafiaManager | Профиль игрока {{ app.user.getNickName() }}</title>
+    <div class="container d-flex justify-content-between">
+        <div class="player-info">
+            <img class="player-info__avatar img-thumbnail rounded-circle" width="300"
+                 src="/build/images/player/dummy_avatar.jpg" alt="">
+            <div class="player-info__name text-center">{{ app.user.getNickName() }}</div>
+        </div>
+        <div class="player-statistic">
+            <div class="player-statistic__title fw-bold display-6">Информация о игроке:</div>
+            <ul class="list-group">
+                <li class="list-group-item ">ФИО: {{ app.user.getFullName() }}</li>
+                <li class="list-group-item ">Слоган: {{ app.user.getSlogan() }}</li>
+                <li class="list-group-item ">Всего игр: {{ player_statistic.total_games_played }} </li>
+                <li class="list-group-item ">Всего игр за мафию: {{ player_statistic.mafia }} %</li>
+                <li class="list-group-item ">Всего за мирных: {{ player_statistic.civilian }} %</li>
+                <li class="list-group-item ">Всего игр за шерифа: {{ player_statistic.sherif }} %</li>
+                <li class="list-group-item">Всего игр за дона: {{ player_statistic.don }} %</li>
+            </ul>
+        </div>
+    </div>
     <div class="container">
-        {{ app.user.getFullName() }}
-        <ul>
-            <li>Всего игр:</li>
-            <li>Процент за мафию:</li>
-            <li>Процент за мирных:</li>
-            <li>Процент за шерифа:</li>
-            <li>Процент за дона:</li>
-        </ul>
+        <div class="last-games">
+            <div class="display-5 text-center">
+                Последние игры
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Название клуба</th>
+                    <th scope="col">Роль</th>
+                    <th scope="col">Результат</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for game_result in game_results %}
+                    <tr>
+                        <th scope="row">{{ loop.index }}</th>
+                        <td>Гарлем</td>
+
+                        {% if game_result.role == 'Мафия' %}
+                            <td class="table-mafia">Мафия</td>
+                        {% endif %}
+
+                        {% if game_result.role == 'Мирный житель' %}
+                            <td class="table-civilian">Мирный житель</td>
+                        {% endif %}
+
+                        {% if game_result.role == 'Дон' %}
+                            <td class="table-don">Дон</td>
+                        {% endif %}
+
+                        {% if game_result.role == 'Шериф' %}
+                            <td class="table-sherif">Шериф</td>
+                        {% endif %}
+
+                        {% if game_result.is_win %}
+                            <td class="table-win">Победа</td>
+                        {% else %}
+                            <td class="table-lose">Поражение</td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}
