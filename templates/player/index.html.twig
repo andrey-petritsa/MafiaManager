@@ -17,6 +17,8 @@
                 <li class="list-group-item ">Всего за мирных: {{ player_statistic.civilian }} %</li>
                 <li class="list-group-item ">Всего игр за шерифа: {{ player_statistic.sherif }} %</li>
                 <li class="list-group-item">Всего игр за дона: {{ player_statistic.don }} %</li>
+                <li class="list-group-item">Процент побед: </li>
+
             </ul>
         </div>
     </div>
@@ -25,7 +27,7 @@
             <div class="display-5 text-center">
                 Последние игры
             </div>
-            <table class="table table-bordered">
+            <table class="table">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -65,6 +67,18 @@
                 {% endfor %}
                 </tbody>
             </table>
+        </div>
+    </div>
+    <div class="container">
+        <div class="display-5 text-center">Членство в клубах</div>
+        <div class="club-list d-flex">
+            {% for membership in app.user.clubMemberships %}
+                <div class="club">
+                    <img src="/build/images/club_logo/show-time.jpg" alt="" class="club__image">
+                    <div class="club__name">{{ membership.club.name }}</div>
+                    <div class="club__city">{{ membership.club.city }}</div>
+                </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

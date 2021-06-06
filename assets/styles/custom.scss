@@ -6,11 +6,13 @@ $mafia-colors: (
         "don": #C6A5EF,
         "civilian" : #A4DCF4,
         "win": #9FF8B2,
-        "lose": #9ba892
+        "lose": #CFC9C9
 );
 
 $table-variants: map-merge($table-variants, $mafia-colors);
 $theme-colors: map-merge($theme-colors, $mafia-colors);
+
+
 
 @import "~bootstrap/scss/bootstrap";
 

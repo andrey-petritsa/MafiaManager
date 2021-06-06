@@ -45,9 +45,15 @@ class Club
      */
     private $gameSessions;
 
+    /**
+     * @ORM\OneToMany(targetEntity=ClubMembership::class, mappedBy="club")
+     */
+    private $clubMemberships;
+
     public function __construct()
     {
         $this->gameSessions = new ArrayCollection();
+        $this->clubMemberships = new ArrayCollection();
     }
 
 
@@ -129,6 +135,36 @@ class Club
             // set the owning side to null (unless already changed)
             if ($gameSession->getClub() === $this) {
                 $gameSession->setClub(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ClubMembership[]
+     */
+    public function getClubMemberships(): Collection
+    {
+        return $this->clubMemberships;
+    }
+
+    public function addClubMembership(ClubMembership $clubMembership): self
+    {
+        if (!$this->clubMemberships->contains($clubMembership)) {
+            $this->clubMemberships[] = $clubMembership;
+            $clubMembership->setClub($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClubMembership(ClubMembership $clubMembership): self
+    {
+        if ($this->clubMemberships->removeElement($clubMembership)) {
+            // set the owning side to null (unless already changed)
+            if ($clubMembership->getClub() === $this) {
+                $clubMembership->setClub(null);
             }
         }
 

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PlayerRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -75,6 +77,16 @@ class Player implements UserInterface
 	 * @ORM\Column(type="boolean")
 	 */
 	private $isVerified = false;
+
+	/**
+	 * @ORM\OneToMany(targetEntity=ClubMembership::class, mappedBy="player")
+	 */
+	private $clubMemberships;
+
+	public function __construct()
+	{
+		$this->clubMemberships = new ArrayCollection();
+	}
 
 	public function getId(): ?int
 	{
@@ -254,6 +266,36 @@ class Player implements UserInterface
 	public function setIsVerified(bool $isVerified): self
 	{
 		$this->isVerified = $isVerified;
+
+		return $this;
+	}
+
+	/**
+	 * @return Collection|ClubMembership[]
+	 */
+	public function getClubMemberships(): Collection
+	{
+		return $this->clubMemberships;
+	}
+
+	public function addClubMembership(ClubMembership $clubMembership): self
+	{
+		if (!$this->clubMemberships->contains($clubMembership)) {
+			$this->clubMemberships[] = $clubMembership;
+			$clubMembership->setPlayer($this);
+		}
+
+		return $this;
+	}
+
+	public function removeClubMembership(ClubMembership $clubMembership): self
+	{
+		if ($this->clubMemberships->removeElement($clubMembership)) {
+			// set the owning side to null (unless already changed)
+			if ($clubMembership->getPlayer() === $this) {
+				$clubMembership->setPlayer(null);
+			}
+		}
 
 		return $this;
 	}

@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\ClubAdmin;
+use App\Entity\ClubMembership;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method ClubAdmin|null find($id, $lockMode = null, $lockVersion = null)
- * @method ClubAdmin|null findOneBy(array $criteria, array $orderBy = null)
- * @method ClubAdmin[]    findAll()
- * @method ClubAdmin[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ClubMembership|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ClubMembership|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ClubMembership[]    findAll()
+ * @method ClubMembership[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ClubAdminRepository extends ServiceEntityRepository
+class ClubMembershipRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, ClubAdmin::class);
+        parent::__construct($registry, ClubMembership::class);
     }
 
     // /**
-    //  * @return ClubAdmin[] Returns an array of ClubAdmin objects
+    //  * @return ClubMembership[] Returns an array of ClubMembership objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class ClubAdminRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?ClubAdmin
+    public function findOneBySomeField($value): ?ClubMembership
     {
         return $this->createQueryBuilder('c')
             ->andWhere('c.exampleField = :val')

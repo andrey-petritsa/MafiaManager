@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Club;
+use App\Entity\ClubMembership;
 use App\Entity\Game;
 use App\Entity\GameSession;
 use App\Entity\Player;
@@ -51,6 +52,12 @@ class AppFixtures extends Fixture
 		$dummyClubs = $this->makeDummyClubs();
 		foreach ($dummyClubs as $dummyClub) {
 			$manager->persist($dummyClub);
+		}
+		$manager->flush();
+
+		$dummyClubMemberShips = $this->makeDummyClubMemberShips();
+		foreach ($dummyClubMemberShips as $dummyClubMemberShip) {
+			$manager->persist($dummyClubMemberShip);
 		}
 		$manager->flush();
 
@@ -110,6 +117,25 @@ class AppFixtures extends Fixture
 		}
 
 		return $playerEntitys;
+	}
+
+	public function makeDummyClubMemberShips() : array
+	{
+		$allPlayers = $this->playerRepository->findAll();
+		$allClubs = $this->clubRepositoy->findAll();
+		$clubMemberShips = [];
+
+		foreach ($allPlayers as $player) {
+			$clubMemberShip = new ClubMembership();
+			$randomClub = $allClubs[ array_rand($allClubs) ];
+			$randomIsAdmin = [true, false][ array_rand([true, false]) ];
+			$clubMemberShip->setPlayer($player);
+			$clubMemberShip->setClub($randomClub);
+			$clubMemberShip->setIsAdmin($randomIsAdmin);
+			$clubMemberShips[] = $clubMemberShip;
+		}
+
+		return $clubMemberShips;
 	}
 
 	public function makeDummyClubs() : array
